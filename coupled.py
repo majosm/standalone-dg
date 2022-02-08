@@ -146,7 +146,8 @@ A = beta * D[:, 1:-1] @ (kappa * D[:, 1:-1])
 print(f"{A=}")
 
 fig, ax = plt.subplots()
-ax.matshow(np.abs(A), cmap=plt.cm.Blues)
+mat_ax = ax.matshow(np.abs(A), cmap=plt.cm.Blues)
+fig.colorbar(mat_ax)
 plt.show()
 
 eigenvalues = np.linalg.eig(A)[0]

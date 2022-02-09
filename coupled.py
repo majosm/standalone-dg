@@ -142,7 +142,7 @@ else:
 # Inspect RHS operator
 
 # Ignoring outer BCs for now (not sure how to include them properly)
-A = beta * D[:, 1:-1] @ (kappa * D[:, 1:-1])
+A = beta.reshape(-1, 1) * D[:, 1:-1] @ (kappa.reshape(-1, 1) * D[:, 1:-1])
 print(f"{A=}")
 
 eigenvalues = np.linalg.eig(A)[0]
